@@ -4,6 +4,7 @@ import React from 'react'
 
 import crossMark from "../assets/images/cross.png";
 import checkMark from "../assets/images/check.png";
+import { Link } from "react-router-dom";
 
 const tasks = [
   { task: "Read the project brief", completed: true },
@@ -51,7 +52,7 @@ const CreateListItem = React.memo(({ task, deleteListItem }) => {
   const imgSrc = task.completed ? checkMark : crossMark;
   return (
     <li>
-      {task.task}
+      <Link to={`/tasks/${task.id}`} state={{task}}>{task.task}</Link>
       <img
         width={"40px"}
         src={imgSrc}

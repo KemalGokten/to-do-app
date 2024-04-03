@@ -7,6 +7,7 @@ import Sidebar from './Sidebar/Sidebar'
 import Footer from './Footer/Footer'
 import MainContent from './MainContent/MainContent.jsx'
 import DetailedTask from './components/DetailedTask.jsx'
+import About from './components/About.jsx';
 import { Route, Routes } from 'react-router-dom'
 
 

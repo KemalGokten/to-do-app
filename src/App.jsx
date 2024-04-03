@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/tasks" element={<MainContent />}></Route>
         <Route path="/tasks/:taskId" element={<DetailedTask/>}></Route>
-        <Route path="/about" element={<h1>About</h1>}></Route>
+        <Route path="/about" element={<About />} ></Route>
         <Route path="*" element={<h1>404 Page not found</h1>}></Route>
       </Routes>
     </div>

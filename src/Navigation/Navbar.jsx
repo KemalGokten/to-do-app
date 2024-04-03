@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="navbar">
       <p className="app-name">To Do App</p>
-      <a className="app-logo" href="#">
+      <Link to={`/tasks`}>
         <img src="" alt="App Logo" />
-      </a>
+      </Link>
     </nav>
   );
 };

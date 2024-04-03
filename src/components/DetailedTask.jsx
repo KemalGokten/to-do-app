@@ -7,9 +7,9 @@ const DetailedTask = () => {
     console.log(task);
     return ( 
         <div>
-            <p>{task.id}</p>
-            <p>{task.task}</p>
-            <p>{task.completed.toString()}</p>
+            <p>Task id: {task.id}</p>
+            <p>Task: {task.task}</p>
+            <p>Task status: {task.completed.toString()}</p>
         </div>
      );
 }

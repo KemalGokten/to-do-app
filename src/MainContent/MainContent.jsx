@@ -33,9 +33,9 @@ const CreateList = () => {
         })
       );
     
-      const deleteListItem = (id) => {
-        setList(listTasks.filter((task) => task.id !== id));
-      };
+      const deleteListItem = React.useCallback((id) => {
+        setList((previousList) => previousList.filter((task) => task.id !== id));
+      },[]);
 
     return ( 
         <ul>

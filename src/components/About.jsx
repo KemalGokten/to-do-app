@@ -1,4 +1,6 @@
 import React from 'react';
+import kemal from '../assets/images/kemal.jpg';
+import kivanc from '../assets/images/kivanc.jpg';
 
 
 const TeamMember = ({ name, role, github, linkedin, imageUrl }) => (
@@ -12,8 +14,7 @@ const TeamMember = ({ name, role, github, linkedin, imageUrl }) => (
       </p>
     </div>
     <div className="member-image">
-      <img src="../assets/images/kemal.jpg" alt={kemal} />
-      <img src="../assets/images/kivanc.jpg" alt={kivanc} />
+      <img src={imageUrl} alt='Temam member photo' />
     </div>
   </div>
 );
@@ -30,15 +31,15 @@ const About = () => {
           name="Kemal Gökten"
           role="Developer"
           github="https://github.com/KemalGokten"
-          linkedin="https://linkedin.com/in/KemalGokten"
-          imageUrl="https://via.placeholder.com/150" // Add image URL for Kemal
+          linkedin="https://www.linkedin.com/in/unsal-kemal-gokten/"
+          imageUrl= {kemal} // Add image URL for Kemal
         />
         <TeamMember
           name="Kivanc Keskinbora"
           role="Developer"
           github="https://github.com/kingblocks"
           linkedin="https://linkedin.com/in/kivanckeskinbora"
-          imageUrl="https://via.placeholder.com/150" // Add image URL for Kivanc
+          imageUrl={kivanc} // Add image URL for Kivanc
         />
       </div>
     </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useLocation } from "react-router-dom";
 
 import crossMark from "../assets/images/cross.png";
 import checkMark from "../assets/images/check.png";
@@ -9,20 +10,26 @@ import tasksData from "../assets/jsonFiles/taskList.json";
 
 let tasks = tasksData.map((task) => ({ ...task, id: uuidv4() }));
 
-const MainContent = () => {
+const MainContent = ({ tasks }) => {
   return (
     <div className="main-content">
-      <CreateList />
+      <CreateList tasks={tasks} />
     </div>
   );
 };
 
-const CreateList = () => {
+const CreateList = ({ tasks }) => {
   const [listTasks, setList] = useState(tasks);
+  const location = useLocation();
+
+  if (location.state) {
+    const { taskText, completed } = location.state;
+    tasks.push({ task: taskText, completed: completed });
+  }
 
   const deleteListItem = React.useCallback((id) => {
     setList((previousList) => {
-      return tasks = previousList.filter((task) => task.id !== id);
+      return (tasks = previousList.filter((task) => task.id !== id));
     });
   }, []);
 

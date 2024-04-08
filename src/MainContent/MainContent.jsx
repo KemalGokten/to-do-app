@@ -27,9 +27,7 @@ const CreateList = ({ tasks, setTasks }) => {
   }
 
   const deleteListItem = React.useCallback((id) => {
-    setTasks((previousList) => 
-       previousList.filter((task) => task.id !== id)
-    );
+    setTasks((previousList) => previousList.filter((task) => task.id !== id));
   }, []);
 
   return (
@@ -48,16 +46,20 @@ const CreateList = ({ tasks, setTasks }) => {
 const CreateListItem = React.memo(({ task, deleteListItem }) => {
   const imgSrc = task.completed ? checkMark : crossMark;
   return (
-    <li>
+    <li className="list-item">
       <Link to={`/tasks/${task.id}`} state={{ task }}>
         {task.task}
       </Link>
-      <img
-        width={"40px"}
-        src={imgSrc}
-        alt={task.completed.toString() + "image"}
-      />
-      <button onClick={() => deleteListItem(task.id)}>Delete</button>
+      <div className="item-description">
+        <img
+          width={"40px"}
+          src={imgSrc}
+          alt={task.completed.toString() + "image"}
+        />
+        <button class="cssbuttons-io" onClick={() => deleteListItem(task.id)}>
+          <span>Delete</span>
+        </button>
+      </div>
     </li>
   );
 });

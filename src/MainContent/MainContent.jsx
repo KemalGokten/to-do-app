@@ -10,16 +10,15 @@ import tasksData from "../assets/jsonFiles/taskList.json";
 
 let tasks = tasksData.map((task) => ({ ...task, id: uuidv4() }));
 
-const MainContent = ({ tasks }) => {
+const MainContent = ({ tasks, setTasks }) => {
   return (
     <div className="main-content">
-      <CreateList tasks={tasks} />
+      <CreateList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 };
 
-const CreateList = ({ tasks }) => {
-  const [listTasks, setList] = useState(tasks);
+const CreateList = ({ tasks, setTasks }) => {
   const location = useLocation();
 
   if (location.state) {
@@ -28,14 +27,14 @@ const CreateList = ({ tasks }) => {
   }
 
   const deleteListItem = React.useCallback((id) => {
-    setList((previousList) => {
-      return (tasks = previousList.filter((task) => task.id !== id));
-    });
+    setTasks((previousList) => 
+       previousList.filter((task) => task.id !== id)
+    );
   }, []);
 
   return (
     <ul>
-      {listTasks.map((currentTask) => (
+      {tasks.map((currentTask) => (
         <CreateListItem
           key={currentTask.id}
           task={currentTask}

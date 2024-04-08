@@ -24,7 +24,7 @@ function App() {
       <div className="content-container">
         <Sidebar />
         <Routes>
-          <Route path="/tasks" element={<MainContent tasks={tasks} />}></Route>
+          <Route path="/tasks" element={<MainContent tasks={tasks} setTasks={setTasks} />}></Route>
           <Route
             path="/tasks/create"
             element={<CreateTask tasks={tasks} setTasks={setTasks} />}

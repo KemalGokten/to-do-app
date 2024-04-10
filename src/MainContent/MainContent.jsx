@@ -1,18 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useLocation } from "react-router-dom";
 
 import crossMark from "../assets/images/cross.png";
 import checkMark from "../assets/images/check.png";
-import tasksData from "../assets/jsonFiles/taskList.json";
-
-let tasks = tasksData.map((task) => ({ ...task, id: uuidv4() }));
 
 const MainContent = ({ tasks, setTasks }) => {
   return (
     <div className="main-content">
+      <h1>TASKS</h1>
       <CreateList tasks={tasks} setTasks={setTasks} />
     </div>
   );
@@ -56,7 +52,7 @@ const CreateListItem = React.memo(({ task, deleteListItem }) => {
           src={imgSrc}
           alt={task.completed.toString() + "image"}
         />
-        <button class="cssbuttons-io" onClick={() => deleteListItem(task.id)}>
+        <button className="cssbuttons-io" onClick={() => deleteListItem(task.id)}>
           <span>Delete</span>
         </button>
       </div>

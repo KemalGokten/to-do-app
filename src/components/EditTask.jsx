@@ -25,7 +25,7 @@ const EditTask = ({ tasks, setTasks }) => {
     });
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={"edit-form-container"}>
       <h1>Edit the Task</h1>
       <label>
         Task description:

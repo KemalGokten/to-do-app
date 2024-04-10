@@ -1,15 +1,16 @@
-import { Link, useLocation } from "react-router-dom"; // Import Link from react-router-dom
+import { Link, useLocation } from "react-router-dom";
 
 const DetailedTask = () => {
   const location = useLocation();
   const task = location.state.task;
+
   return (
-    <div>
-      <p>Task id: {task.id}</p>
-      <p>Task: {task.task}</p>
-      <p>Task status: {task.completed.toString()}</p>
+    <div className="detailed-task-container">
+      <p className="task-id">Task ID: {task.id}</p>
+      <p className="task-description">Task: {task.task}</p>
+      <p className="task-status">Task Status: {task.completed ? 'Completed' : 'Not Completed'}</p>
       <Link to={`/tasks/${task.id}/edit`} state={{ task }}>
-        <button>Edit</button>
+        <button className="edit-button">Edit Task</button>
       </Link>
     </div>
   );
